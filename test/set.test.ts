@@ -19,7 +19,7 @@ test('should add item to set', t => {
   expect(set).toEqual(new AsciaSet([obj1]))
 
   // Add again does not change set
-  set.add(obj1)
+  set.add({ a: 1, b: 2 })
 
   expect(set.size).toBe(1)
   expect(set).toEqual(new AsciaSet([obj1]))
@@ -42,7 +42,7 @@ test('should delete item from set', t => {
 
   const set = new AsciaSet([obj1, obj2])
 
-  set.delete(obj1)
+  expect(set.delete(obj1))
   expect(set.size).toBe(1)
   expect(set).toEqual(new AsciaSet([obj2]))
 })
@@ -51,7 +51,7 @@ test('has: should return true if contains object', t => {
   const obj1 = { a: 1, b: 2 }
   const obj2 = { a: 1, b: 3 }
 
-  expect(new AsciaSet([obj1, obj2]).has(obj1)).toBe(true)
+  expect(new AsciaSet([obj1, obj2]).has({ a: 1, b: 2 })).toBe(true)
 })
 
 test('has: should return false if does not contain object', t => {
