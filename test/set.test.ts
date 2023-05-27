@@ -42,7 +42,7 @@ test('should delete item from set', t => {
 
   const set = new AsciaSet([obj1, obj2])
 
-  expect(set.delete(obj1))
+  expect(set.delete({ a: 1, b: 2 }))
   expect(set.size).toBe(1)
   expect(set).toEqual(new AsciaSet([obj2]))
 })
